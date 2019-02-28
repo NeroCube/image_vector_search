@@ -8,6 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 
+
 input_path = './test_images'
 
 img2vec = Img2Vec()
@@ -31,7 +32,6 @@ while pic_name != "exit":
         for key in list(pics.keys()):
             if key == pic_name:
                 continue
-            # sims[key] = vec_similarity.TS_SS(pics[pic_name].reshape((1, -1)))
             sims[key] = cosine_similarity(pics[pic_name].reshape((1, -1)), pics[key].reshape((1, -1)))[0][0]
 
         d_view = [(v, k) for k, v in sims.items()]
